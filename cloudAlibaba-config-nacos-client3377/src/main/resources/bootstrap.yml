@@ -1,0 +1,19 @@
+#nacos 配置
+server:
+  port: 3377
+
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #Nacos 服务注册中心地址
+      # 3377 去 Nacos 上去读后缀名为 yaml的文件
+      config:
+        server-addr: localhost:8848 #Nacos 配置中心地址
+        file-extension: yaml # 指定 yaml 格式的配置
+        namespace: 19f737d2-c900-45a8-a694-75e47e8fca36
+
+# dataId 的完整格式如下
+# ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
